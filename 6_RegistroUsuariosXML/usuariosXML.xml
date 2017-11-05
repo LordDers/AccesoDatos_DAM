@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<usuarios id="1">
+    <nombreCreador>Ruben Alvarez</nombreCreador>
+    <users>
+        <dni_usuario>00000000A</dni_usuario>
+        <nombre_usuario>Pepe</nombre_usuario>
+        <apellido_usuario>Garcia</apellido_usuario>
+    </users>
+    <users>
+        <dni_usuario>11111111A</dni_usuario>
+        <nombre_usuario>Juan</nombre_usuario>
+        <apellido_usuario>Perez</apellido_usuario>
+    </users>
+    <users>
+        <dni_usuario>22222222A</dni_usuario>
+        <nombre_usuario>Sandra</nombre_usuario>
+        <apellido_usuario>Garcia</apellido_usuario>
+    </users>
+    <users>
+        <dni_usuario>33333333A</dni_usuario>
+        <nombre_usuario>Ruben</nombre_usuario>
+        <apellido_usuario>Alvarez</apellido_usuario>
+    </users>
+</usuarios>

@@ -1,0 +1,7 @@
+Registro de Usuarios	(DNI, Nombre, Apellido)
+- File static private
+- Añadir usuario() throws UsuarioExistente --> (UsuarioExistente es una clase creada por nosotros) static
+- Consultar usuario(String DNI) static
+- Eliminar usuario(String DNI) static
+- mostrarUsuarios() static
+- Constructora privada (singleton)

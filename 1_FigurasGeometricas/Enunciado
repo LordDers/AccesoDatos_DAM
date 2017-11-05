@@ -1,0 +1,6 @@
+Figura (abstract)
+	posX
+	posY
+	superficie()--> double (abstract)
+	perimetro()--> double (abstract)
+	figura(scanner)
