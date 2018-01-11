@@ -67,7 +67,7 @@
         <input name='id' value="{{old('id')}}" hidden/>
     @elseif (empty($users->dni))
         <input name='id' value="-1" hidden/>
-        <script>window.location.href = "/";</script>
+        <!--<script>window.location.href = "/";</script>-->
     @else
         <input name='id' value='{{$users->id}}' hidden/>
     @endif

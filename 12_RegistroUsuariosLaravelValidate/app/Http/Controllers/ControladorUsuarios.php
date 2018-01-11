@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Usuario;
 
 class ControladorUsuarios extends Controller
@@ -82,7 +83,11 @@ class ControladorUsuarios extends Controller
 
             // Validate
             $usuarios = $request->validate([
-                'dni' => 'required|max:9',
+                'dni' => [
+                    'required',
+                    'max:9',
+                    Rule::unique('usuarios')->ignore($usuario->id, 'id'),
+                ],
                 'nombre' => 'required',
                 'apellido' => 'required',
                 'edad' => 'required|numeric',
@@ -128,15 +133,21 @@ class ControladorUsuarios extends Controller
         } else {
             //echo "get";
 
-            $usuario = Usuario::all()->first();
-            $usuario->dni = "";
-            $usuario->nombre = "";
-            $usuario->apellido = "";
-            $usuario->edad = "";
-            $usuario->email = "";
-            $usuario->id = -1;
+            $oldID = $request->old('id');
 
-            return View('editarUsuario', ['users' => $usuario]);
+            if (!$oldID == null) {
+                $usuario = Usuario::all()->first();
+                $usuario->dni = "";
+                $usuario->nombre = "";
+                $usuario->apellido = "";
+                $usuario->edad = "";
+                $usuario->email = "";
+                $usuario->id = -1;
+
+                return View('editarUsuario', ['users' => $usuario]);
+            } else {
+                return redirect('mostrarUsuarios');
+            }
         }
     }
 }
