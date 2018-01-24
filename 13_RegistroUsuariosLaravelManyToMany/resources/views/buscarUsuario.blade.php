@@ -32,10 +32,11 @@
             <td>{{$users->edad}}</td>
             <td>{{$users->email}}</td>
             <td>
-            @foreach($aulas as $aulasUsuario)
-                {{$aulasUsuario->num_aula}}
-                <br>
-            @endforeach
+                <ul class="list-group">
+                @foreach($aulas as $aulasUsuario)
+                    <li class="list-group-item list-group-item-info">{{$aulasUsuario->num_aula}}</li>
+                @endforeach
+                </ul>
             </td>
         </tr>
     </table>

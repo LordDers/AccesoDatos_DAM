@@ -103,6 +103,9 @@ class ControladorUsuarios extends Controller
             
             $usuario->save();*/
 
+
+
+
             // Validate
             $usuarios = $request->validate([
                 'dni' => [
@@ -126,6 +129,25 @@ class ControladorUsuarios extends Controller
             return redirect('mostrarUsuarios')
                         ->with('success','Usuario modificado correctamente');
                     }
+
+
+
+            // PRUEBAS AULAS -- FALTA COMPROBAR SI YA ESTA EN ESA AULA -- DUPLICA DATOS
+            /*$usuario->dni = $request-> input('dni');
+            $usuario->nombre = $request-> input('nombre');
+            $usuario->apellido = $request-> input('apellido');
+            $usuario->edad = $request-> input('edad');
+            $usuario->email = $request-> input('email');
+            
+            $usuario->save();
+
+            $aulasForm = $request->input('aula');
+            $usuario->aulas()->attach($aulasForm);
+
+            return redirect('mostrarUsuarios')
+                        ->with('success','Usuario modificado correctamente');
+                    }*/
+
     }
     
     public function accionesUsuarios(Request $request) {
@@ -141,12 +163,15 @@ class ControladorUsuarios extends Controller
                 
                 return View('buscarUsuario', ['users' => $usuario], ['aulas' => $relacionUsuarioAulas]);
             
-            
             } else if ($request->input('editar')) {
-                //$usuario = Usuario::where('id', $id)->get();
                 $usuario = Usuarios::where('id', $id)->first();
-                return View('editarUsuario', ['users' => $usuario]);
-                //return View('editarUsuario');
+
+                $relacionUsuarioAulas = $usuario->aulas;
+
+                $todasAulas = Aulas::all();
+
+                return View('editarUsuario', ['users' => $usuario], ['aulas' => $relacionUsuarioAulas, 'todasAulas' => $todasAulas]);
+                //return View('editarUsuario', ['users' => $usuario], ['todasAulas' => $todasAulas]);
 
             } else if ($request->input('borrar')) {
                 

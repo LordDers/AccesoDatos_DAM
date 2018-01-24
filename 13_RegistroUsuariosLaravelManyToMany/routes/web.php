@@ -38,6 +38,9 @@ Route::post('anyadirAula', 'ControladorAulas@procesarAnyadirAula');
 
 Route::get('/mostrarAulas', 'ControladorAulas@showAulas');
 
+Route::get('/accionAulas', 'ControladorAulas@accionesAulas');
+Route::post('/accionAulas', 'ControladorAulas@accionesAulas');
+
 Route::get('/{cualquierCosa}', function ($name) {
     return redirect('mostrarUsuarios');
 })->where('cualquierCosa', '.+');

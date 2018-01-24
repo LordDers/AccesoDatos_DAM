@@ -40,13 +40,13 @@
         @php ($i = 1)
         @foreach ($aulas as $aulasRegistradas)
         <tr>
-            <form action='/accion' method='POST' name='varias'>
+            <form action='/accionAulas' method='POST' name='varias'>
                 {{ csrf_field() }}
                 <input name='id' value='{{$aulasRegistradas->id}}' hidden/>
                 <td>{{ $i++ }}</td>
                 <td>{{$aulasRegistradas->num_aula}}</td>
                 <td>
-                  <!--<input type="submit" class="btn btn-danger" name="borrar" value="Delete">-->
+                  <input type="submit" class="btn btn-info" name="buscar" value="Show">
                 </td>
             </form>
         </tr>

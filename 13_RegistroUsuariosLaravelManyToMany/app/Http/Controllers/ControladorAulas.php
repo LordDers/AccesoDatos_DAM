@@ -45,4 +45,27 @@ class ControladorAulas extends Controller
     	return View('mostrarAulas', ['aulas' => $lista]);
     }
 
+    // Acciones de Aulas
+    public function accionesAulas(Request $request) {
+        
+        $id = $request-> input('id');
+
+        if ($request->isMethod('post')) {
+            //echo "post";
+            if ($request->input('buscar')) {
+                $aula = Aulas::where('id', $id)->first();
+
+                $relacionAulasUsuarios = $aula->usuarios;
+                
+                return View('buscarAula', ['aula' => $aula], ['usuarios' => $relacionAulasUsuarios]);
+                
+            } else if ($request->input('editar')) {
+
+            } else if ($request->input('borrar')) {
+            }
+        } else {
+            return redirect('mostrarAulas');
+        }
+    }
+
 }

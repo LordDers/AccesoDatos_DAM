@@ -62,6 +62,27 @@
             <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="{{$users->email}}">
         @endif
     </div>
+
+    <!-- Aulas del Usuario -->
+    <div class="form-group">
+        <label for="InputAulasUsuario">Aulas Seleccionadas</label>
+        @foreach ($aulas as $aulasUsuario)
+          <div class="checkbox">
+            <label><input type="checkbox" name="aulasUsuario[]" value="{{$aulasUsuario->id}}" checked="true" disabled="true" />{{$aulasUsuario->num_aula}}</label>
+          </div>
+        @endforeach
+    </div>
+
+    <!-- Todas las aulas -->
+    <div class="form-group">
+        <label for="InputAulas">Aulas</label>
+        @foreach ($todasAulas as $allAulas)
+          <div class="checkbox">
+            <label><input type="checkbox" name="aula[]" value="{{$allAulas->id}}" />{{$allAulas->num_aula}}</label>
+          </div>
+        @endforeach
+    </div>
+
     
     @if ($errors->any())
         <input name='id' value="{{old('id')}}" hidden/>
